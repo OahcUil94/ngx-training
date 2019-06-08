@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { OnlineStoreRoutingModule } from './online-store-routing.module';
 import { OnlineStoreComponent } from './online-store.component';
@@ -24,6 +25,7 @@ import { ShippingComponent } from './shipping/shipping.component';
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     OnlineStoreRoutingModule
   ]
 })
