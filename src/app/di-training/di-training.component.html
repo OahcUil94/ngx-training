@@ -1,0 +1,71 @@
+<h2>依赖注入</h2>
+
+<h3>依赖注入涉及到的角色有：</h3>
+
+<ul>
+  <li>组件的依赖：组件声明需要的依赖，依赖的内容不只是服务，还可能是函数或者值，DI框架会自动的把依赖的内容注入到组件中，使组件能够访问到依赖的信息</li>
+  <li>服务：如何把一个类定义为服务，需要用@Injectable()装饰器来装饰这个类，以便DI框架可以把该类作为依赖注入到组件中</li>
+  <li>
+    <h4>供应商（提供商）</h4>
+    <p>它是一个对象，用来告诉注入器如何获取并创建组件需要的依赖，对于用到的任何服务，必须至少注册一个提供商</p>
+    <h5>如何创建供应商</h5>
+    <ul>
+      <li>服务可以在@Injectable()中提供元数据，注册供应商</li>
+      <li>可以在模块或组件的providers中配置</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>依赖注入部分感悟</h3>
+<ul>
+  <li>1. 定义了服务后，服务如果要被DI框架正确注入到组件中，必须注册成供应商，服务注册成供应商有两种方式，一种是在模块或组件的providers元数据中配置，另一种是在服务的@Injectable()的providedIn元数据中配置</li>
+</ul>
+
+<!--
+
+依赖注入，控制反转，控制反转是指将依赖的控制权从代码的内部转到代码的外部，控制反转和依赖注入是一体两面，表达的是一个思想，控制反转侧重于描述目的，目的是将依赖的控制权从代码的内部转到代码的外部，而依赖注入侧重于描述手段，如何来实现控制反转，使用的手段是依赖注入，实现了控制反转模式的框架被称为IOC容器，angular框架就是一个IOC容器，angular实现控制反转的手段就是依赖注入。
+
+简单来说依赖注入会帮助你以一种松耦合的方式编写代码，使你的代码可测性和可重用性更高。
+
+通过providers或者provideredIn，来说明哪些服务需要被依赖注入，provider定义了一个对象在被注入到组件和指令中之前，如何实例化。
+
+提供器的Token：Token代表了可被注入对象的类型，Token的类型由provider配置对象的provide属性决定
+
+```
+providers: [{provide: ProductService, useClass: ProductService}]
+```
+
+注册一个ProductService的Token，当有组件或指令声明自己需要一个类型为ProductService的Token时，实例化ProductService，并将其注入到目标对象。
+
+注入器：每一个组件都有一个注入器实例，负责注入组件需要的对象，注入器是angular提供的一个服务类，一般情况下你不需要直接调用注入器的方法，注入器会自动通过组件的构造函数，将组件的所需的对象注入进组件。
+
+注入器读取组件或者管道或者服务的构造函数，根据定义的依赖，注入器去寻找提供器
+
+注入器是根据Token的类型来匹配注入的对象和提供器的
+
+提供器的作用域
+
+@Injectable指的是可以把其他服务注入到自己这里面来，至于自身能不能注入到其他服务，完全是在provider中声明即可。
+
+为什么组件，管道，指令都可以被注入服务，因为Component，Directive，Pipe都是Injectable装饰器的子类。
+
+服务之间互相依赖，需要把服务都注册到根级别的注入器上，也可以在模块的providers元数据中配置。
+
+注入器：除了App模块中声明的提供器会被注册到注入器中，被引用的模块的提供器也会被注册到注入器中
+
+angular框架的依赖注入，只有一个注入点，就是构造函数。
+
+
+自己手动注入：
+
+```
+private productService: ProductService;
+
+constructor(private injector: Injector) {
+  this.productService = injector.get(ProductService);
+}
+```
+
+ReflectiveInjector: from v5 - slow and brings in a lot of code, Use `Injector.create` instead.
+
+-->
