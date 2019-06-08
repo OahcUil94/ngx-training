@@ -57,3 +57,5 @@ ng g module app-routing --flat --module=app
 ## 创建带有路由信息的模块
 
 `ng g m xxx --routing`
+
+
