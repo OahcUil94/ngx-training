@@ -8,6 +8,7 @@ const routes: Routes = [
     path: '', component: NgxDocsComponent, children: [
       { path: 'guide', component: DocsGuideComponent },
       { path: 'tour-of-heroes', loadChildren: './tour-of-heroes/tour-of-heroes.module#TourOfHeroesModule' },
+      { path: 'online-store', loadChildren: './online-store/online-store.module#OnlineStoreModule' },
       { path: '**', redirectTo: '/ngx-docs/guide', pathMatch: 'full' }
     ]
   }
