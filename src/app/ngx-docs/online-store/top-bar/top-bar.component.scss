@@ -1,54 +1,47 @@
-.top-bar-header {
-  width: 444px;
-  height: 68px;
-  background-color: #1976d2;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+h1 {
+  font-size: 32px;
+}
+
+a {
+  cursor: pointer;
+  color: #1976d2;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.button, button {
+  display: inline-flex;
   align-items: center;
-  box-sizing: border-box;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+}
 
-  .title-link {
-    text-decoration: none;
-  }
+.button:hover, button:hover {
+  opacity: 0.8;
+  font-weight: normal;
+}
 
-  h1 {
-    color: #FFF;
-    margin: 0;
-    font-size: 32px;
-    font-weight: lighter;
-  }
+.button:disabled, button:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
 
-  .button, button {
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 16px;
-    border-radius: 2px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #1976D2;
-    color: white;
-    border: none;
-  }
+/* Fancy Button */
 
-  .button:hover, button:hover {
-    opacity: 0.8;
-    font-weight: normal;
-  }
+.fancy-button {
+  background-color: white;
+  color: #1976d2;
+}
 
-  .button:disabled, button:disabled {
-    opacity: 0.5;
-    cursor: auto;
-  }
-
-  .fancy-button {
-    background-color: white;
-    color: #1976D2;
-  }
-
-  .fancy-button i.material-icons {
-    color: #1976D2;
-    padding-right: 4px;
-  }
+.fancy-button i.material-icons {
+  color: #1976d2;
+  padding-right: 4px;
 }
