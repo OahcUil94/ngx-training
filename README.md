@@ -57,3 +57,53 @@ ng g module app-routing --flat --module=app
 ## 创建带有路由信息的模块
 
 `ng g m xxx --routing`
+
+## 服务端渲染
+
+```
+$ ng add @nguniversal/express-engine --clientProject ngx-training
+Installing packages for tooling via npm.
+npm WARN @nguniversal/express-engine@7.0.2 requires a peer of @angular/platform-server@>=6.0.0 but none is installed. You must install peer dependencies yourself.
+
++ @nguniversal/express-engine@7.0.2
+added 1 package and audited 15978 packages in 6.274s
+found 0 vulnerabilities
+
+Installed packages for tooling via npm.
+CREATE src/main.server.ts (220 bytes)
+CREATE src/app/app.server.module.ts (318 bytes)
+CREATE tsconfig.server.json (204 bytes)
+CREATE webpack.server.config.js (1360 bytes)
+CREATE server.ts (1500 bytes)
+UPDATE package.json (1471 bytes)
+UPDATE angular.json (3708 bytes)
+UPDATE src/main.ts (432 bytes)
+UPDATE src/app/app.module.ts (521 bytes)
+
+> webpack-cli@3.3.3 postinstall /Users/cube/Desktop/training/ngx-training/node_modules/webpack-cli
+> node ./bin/opencollective.js
+
+
+
+                            Thanks for using Webpack!
+                 Please consider donating to our Open Collective
+                        to help us maintain this package.
+
+
+
+              👉  Donate: https://opencollective.com/webpack/donate
+
+
+added 19 packages from 22 contributors and audited 18092 packages in 6.86s
+found 0 vulnerabilities
+
+audited 18092 packages in 7.156s
+found 0 vulnerabilities
+```
+
+命令的`ng add @nguniversal/express-engine --clientProject ngx-training`的`--clientProject`指定的参数必须和`angular.json`中的project名相同。
+
+
+执行命令：`npm run build:ssr && npm run serve:ssr`启动服务。
+
+最好自行安装一下`npm i -D @types/express`

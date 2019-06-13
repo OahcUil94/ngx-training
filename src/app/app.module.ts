@@ -4,14 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StudyGuideComponent } from './study-guide/study-guide.component';
+import { DiTrainingComponent } from './di-training/di-training.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudyGuideComponent
+    StudyGuideComponent,
+    DiTrainingComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
