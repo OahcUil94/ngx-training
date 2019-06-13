@@ -5,6 +5,7 @@ import { StudyGuideComponent } from './study-guide/study-guide.component';
 const routes: Routes = [
   { path: '', component: StudyGuideComponent },
   { path: 'ngx-docs', loadChildren: './ngx-docs/ngx-docs.module#NgxDocsModule' },
+  { path: 'ngx-case', loadChildren: './ngx-case/ngx-case.module#NgxCaseModule' },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
