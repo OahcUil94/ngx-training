@@ -107,3 +107,7 @@ found 0 vulnerabilities
 执行命令：`npm run build:ssr && npm run serve:ssr`启动服务。
 
 最好自行安装一下`npm i -D @types/express`
+
+## lint
+
+`ng lint`用于进行静态语法规范的扫描，把违背规范的代码列出来。
