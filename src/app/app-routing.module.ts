@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: '', component: StudyGuideComponent },
   { path: 'ngx-docs', loadChildren: './ngx-docs/ngx-docs.module#NgxDocsModule' },
   { path: 'ngx-case', loadChildren: './ngx-case/ngx-case.module#NgxCaseModule' },
+  { path: 'study-notes', loadChildren: './study-notes/study-notes.module#StudyNotesModule' },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
