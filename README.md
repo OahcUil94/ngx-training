@@ -111,3 +111,17 @@ found 0 vulnerabilities
 ## lint
 
 `ng lint`用于进行静态语法规范的扫描，把违背规范的代码列出来。
+
+## 组件的生命周期
+
+constructor：构造函数永远首先被调用
+ngOnChanges：输入属性变化时被调用
+ngOnInit：组件初始化时被调用
+ngDoCheck：脏值检测时被调用，angular去检测内部的状态变化
+
+ngAfterContentInit：当内容投影ng-content完成时调用
+ngAfterContentChecked：angular检测投影内容时调用（多次）
+ngAfterViewInit：当组件视图（子视图）初始化完成时（组件加子组件都初始化完成）
+ngAfterViewChecked：当检测视图变化时（多次）
+
+ngOnDestroy：当组件销毁时
