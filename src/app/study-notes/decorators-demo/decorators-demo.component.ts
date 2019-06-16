@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, DoBootstrap} from '@angular/core';
 import { Confirmable, Emoji } from "./decorators-demo01";
 
 @Component({
@@ -6,7 +6,7 @@ import { Confirmable, Emoji } from "./decorators-demo01";
   templateUrl: './decorators-demo.component.html',
   styleUrls: ['./decorators-demo.component.scss']
 })
-export class DecoratorsDemoComponent {
+export class DecoratorsDemoComponent implements DoBootstrap{
   @Emoji() title = '装饰器';
 
   @Confirmable('确定要打印吗？')
@@ -14,4 +14,7 @@ export class DecoratorsDemoComponent {
     console.log('hello world');
   }
 
+  ngDoBootstrap() {
+
+  }
 }
