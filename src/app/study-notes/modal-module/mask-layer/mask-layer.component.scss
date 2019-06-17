@@ -1,0 +1,11 @@
+:host, .mask-layer-con {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.mask-layer-bg {
+  background-color: rgba(0, 0, 0, .2);
+}

@@ -6,18 +6,27 @@ import { StudyNotesComponent } from './study-notes.component';
 import { DecoratorsDemoComponent } from './decorators-demo/decorators-demo.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { DynamicChildComponent } from './dynamic/dynamic-child/dynamic-child.component';
+import { ModalConComponent } from './modal-con/modal-con.component';
+import { ModalModuleModule } from './modal-module/modal-module.module';
+import { ModalContentComponent } from './modal-content/modal-content.component';
 
 @NgModule({
   declarations: [
     StudyNotesComponent,
     DecoratorsDemoComponent,
     DynamicComponent,
-    DynamicChildComponent
+    DynamicChildComponent,
+    ModalConComponent,
+    ModalContentComponent
   ],
   imports: [
     CommonModule,
-    StudyNotesRoutingModule
+    StudyNotesRoutingModule,
+    ModalModuleModule
   ],
-  entryComponents: [DynamicChildComponent]
+  entryComponents: [
+    DynamicChildComponent,
+    ModalContentComponent
+  ]
 })
 export class StudyNotesModule { }
