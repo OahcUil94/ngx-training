@@ -7,9 +7,6 @@ import {ModalDomService} from "../modal-module/modal-dom.service";
   styleUrls: ['./modal-content.component.scss']
 })
 export class ModalContentComponent implements OnInit {
-  private injector: Injector;
-  private aloneService: ModalDomService;
-
   constructor(
     private service: ModalDomService
   ) {
@@ -19,6 +16,7 @@ export class ModalContentComponent implements OnInit {
   }
 
   open() {
+    this.service.appendComponentTo(true, false, ModalContentComponent);
   }
 
   remove() {

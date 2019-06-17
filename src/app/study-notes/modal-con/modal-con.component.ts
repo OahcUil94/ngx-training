@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ApplicationRef, Component, ComponentFactoryResolver, Injector, OnInit} from '@angular/core';
 import { ModalDomService } from '../modal-module/modal-dom.service';
 import { ModalContentComponent } from '../modal-content/modal-content.component';
 
@@ -9,6 +9,7 @@ import { ModalContentComponent } from '../modal-content/modal-content.component'
   providers: [ModalDomService]
 })
 export class ModalConComponent implements OnInit {
+
   constructor(private service: ModalDomService) {}
 
   ngOnInit() {
