@@ -4,7 +4,7 @@ import {
   ComponentRef,
   EmbeddedViewRef,
   Injectable,
-  Injector, Type
+  Injector
 } from '@angular/core';
 import { MaskLayerComponent } from './mask-layer/mask-layer.component';
 
@@ -24,7 +24,7 @@ export class ModalDomService {
     private injector: Injector
   ) {}
 
-  public appendComponentTo(maskClickClose: boolean, showMaskLayer: boolean, component: any) {
+  public appendComponentTo(maskClickClose: boolean, showMaskLayer: boolean, component: any, inputs: object) {
     const factory = this.cfr.resolveComponentFactory(MaskLayerComponent);
     const maskRef = factory.create(this.injector);
     this.maskRefs.push(maskRef);
@@ -37,7 +37,12 @@ export class ModalDomService {
     }, maskRef);
 
     const instance = maskRef.instance as MaskLayerComponent;
-    instance.setContentRef(this.cfr.resolveComponentFactory(component));
+    const contentFactory = this.cfr.resolveComponentFactory(component);
+    const contentInstance = instance.setContentRef(contentFactory);
+
+    for (let key in inputs) {
+      contentInstance.instance[key] = inputs[key];
+    }
 
     this.appRef.attachView(maskRef.hostView);
 

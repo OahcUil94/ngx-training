@@ -1,22 +1,18 @@
-import {ApplicationRef, Component, ComponentFactoryResolver, Injector, OnInit} from '@angular/core';
-import {ModalDomService} from "../modal-module/modal-dom.service";
+import { Component, Input } from '@angular/core';
+import { ModalDomService } from '../modal-module/modal-dom.service';
 
 @Component({
   selector: 'app-modal-content',
   templateUrl: './modal-content.component.html',
   styleUrls: ['./modal-content.component.scss']
 })
-export class ModalContentComponent implements OnInit {
-  constructor(
-    private service: ModalDomService
-  ) {
-  }
+export class ModalContentComponent {
+  @Input() count = 0;
 
-  ngOnInit() {
-  }
+  constructor(private service: ModalDomService) {}
 
   open() {
-    this.service.appendComponentTo(true, false, ModalContentComponent);
+    this.service.appendComponentTo(true, false, ModalContentComponent, {count: 1234567});
   }
 
   remove() {

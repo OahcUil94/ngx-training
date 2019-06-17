@@ -1,6 +1,7 @@
 import {
   Component,
   ComponentFactory,
+  ComponentRef,
   ElementRef,
   Input,
   ViewChild,
@@ -35,7 +36,7 @@ export class MaskLayerComponent {
     this.onMaskClick();
   }
 
-  setContentRef(factory: ComponentFactory<any>) {
-    this.masklayercontent.createComponent(factory);
+  setContentRef(factory: ComponentFactory<any>): ComponentRef<any> {
+    return this.masklayercontent.createComponent(factory);
   }
 }
