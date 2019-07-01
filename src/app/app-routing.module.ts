@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { StudyGuideComponent } from './study-guide/study-guide.component';
 
 const routes: Routes = [
-  { path: '', component: StudyGuideComponent },
+  { path: 'index', component: StudyGuideComponent },
+  { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
   { path: 'ngx-docs', loadChildren: './ngx-docs/ngx-docs.module#NgxDocsModule' },
   { path: 'ngx-case', loadChildren: './ngx-case/ngx-case.module#NgxCaseModule' },
   { path: 'study-notes', loadChildren: './study-notes/study-notes.module#StudyNotesModule' },
-  { path: '**', redirectTo: '/', pathMatch: 'full' }
+  { path: '**', redirectTo: '/charts', pathMatch: 'full' }
 ];
 
 @NgModule({
