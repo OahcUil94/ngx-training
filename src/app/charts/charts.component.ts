@@ -1,4 +1,10 @@
-import {AfterViewInit, ViewChild, Component, OnInit, ElementRef} from '@angular/core';
+import {
+  AfterViewInit,
+  ViewChild,
+  Component,
+  OnInit,
+  ElementRef
+} from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -17,7 +23,6 @@ export class ChartsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.renderLineChart();
-
     this.renderPieChart();
   }
 
@@ -46,8 +51,8 @@ export class ChartsComponent implements OnInit, AfterViewInit {
       }]
     };
 
-    const elem = this.transChartCon.nativeElement;
-    Highcharts.chart(elem, options);
+    const elem = this.transChartCon.nativeElement as HTMLElement;
+    new (Highcharts as any).Chart(elem, options);
   }
 
   renderPieChart() {
@@ -65,27 +70,40 @@ export class ChartsComponent implements OnInit, AfterViewInit {
         enabled: false,
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
       },
+      credits: {
+        enabled: false
+      },
       series: [{
         name: 'Brands',
         colorByPoint: true,
+        innerSize: '50%',
         data: [{
           name: '企业用户',
           y: 45,
           color: '#35A5ED',
+          dataLabels: {
+            style: {
+              fontSize: '0.097rem',
+              color: '#111',
+              lineHeight: 1
+            }
+          }
         }, {
           name: 'C端用户',
           y: 55,
           color: '#6EC9C7',
+          dataLabels: {
+            style: {
+              fontSize: '0.097rem',
+              color: '#111',
+              lineHeight: 1
+            }
+          }
         }]
-      }, c => {
-        const centerY = c.series[0].center[1],
-          titleHeight = parseInt(c.title.styles.fontSize);
-        c.setTitle({y: centerY + titleHeight / 2});
-        chart = c;
       }]
     };
 
-    const elem = this.pieChartCon.nativeElement;
-    Highcharts.chart(elem, options);
+    const elem = this.pieChartCon.nativeElement as HTMLElement;
+    new (Highcharts as any).Chart(elem, options);
   }
 }
