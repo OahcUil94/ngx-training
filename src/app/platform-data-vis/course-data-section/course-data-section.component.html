@@ -1,0 +1,43 @@
+<section class="course-data-wrapper">
+  <app-data-section-title [title]="'平台课程数据'"></app-data-section-title>
+
+  <section class="course-data-con">
+    <ul class="course-overview-list">
+      <li *ngFor="let item of overviewData;" class="course-overview-item common-shadow common-radius">
+        <h5 class="item-title">{{item.title}}</h5>
+        <h6 class="item-content">{{item.content}}</h6>
+      </li>
+    </ul>
+    <section class="public-course-con">
+      <section class="overview-con common-shadow common-radius">
+        <h5 class="overview-title">开放课程数量：</h5>
+        <h6 class="overview-content">{{publicCourseData.total}}</h6>
+        <ul class="legend-list">
+          <li class="legend-item">
+            <span class="legend-icon blue-shadow"></span>
+            <span class="legend-txt">在线课</span>
+          </li>
+          <li class="legend-item">
+            <span class="legend-icon cyan-shadow"></span>
+            <span class="legend-txt">直播课</span>
+          </li>
+          <li class="legend-item">
+            <span class="legend-icon green-shadow"></span>
+            <span class="legend-txt">线下课</span>
+          </li>
+        </ul>
+      </section>
+      <ul class="public-course-scale-con">
+        <li class="scale-item common-shadow common-radius">
+          <div class="scale-txt">51%</div>
+        </li>
+        <li class="scale-item common-shadow common-radius">
+          <div class="scale-txt">28%</div>
+        </li>
+        <li class="scale-item common-shadow common-radius">
+          <div class="scale-txt">0%</div>
+        </li>
+      </ul>
+    </section>
+  </section>
+</section>

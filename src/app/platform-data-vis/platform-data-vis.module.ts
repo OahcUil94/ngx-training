@@ -4,9 +4,13 @@ import { PlatformDataVisComponent } from './platform-data-vis.component';
 import { PlatformDataVisRoutingModule } from './platform-data-vis-routing.module';
 import { DataSectionTitleComponent } from './data-section-title/data-section-title.component';
 import { TransDataSectionComponent } from './trans-data-section/trans-data-section.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import { CourseDataSectionComponent } from './course-data-section/course-data-section.component';
+import { UserDataSectionComponent } from './user-data-section/user-data-section.component';
+import { CollegeDataSectionComponent } from './college-data-section/college-data-section.component';
 
 @NgModule({
-  declarations: [PlatformDataVisComponent, DataSectionTitleComponent, TransDataSectionComponent],
+  declarations: [PlatformDataVisComponent, DataSectionTitleComponent, TransDataSectionComponent, DatepickerComponent, CourseDataSectionComponent, UserDataSectionComponent, CollegeDataSectionComponent],
   imports: [
     CommonModule,
     PlatformDataVisRoutingModule

@@ -1,0 +1,91 @@
+@import "~src/styles/config";
+
+.course-overview-list {
+  margin-top: px2vw(30);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .course-overview-item {
+    background: #FFF;
+    width: px2vw(422);
+    height: px2vw(122);
+    box-sizing: border-box;
+    padding: px2vw(26) px2vw(30);
+
+    .item-title {
+      font-size: px2vw(18);
+      color: #111;
+      line-height: 1;
+      margin-bottom: px2vw(15);
+    }
+
+    .item-content {
+      font-size: px2vw(30);
+      color: #111;
+      line-height: 1;
+      font-weight: 700;
+    }
+  }
+}
+
+.public-course-con {
+  display: flex;
+  justify-content: space-between;
+  margin-top: px2vw(30);
+
+  .overview-con {
+    background-color: #FFF;
+    width: px2vw(300);
+    height: px2vw(255);
+    box-sizing: border-box;
+    padding: px2vw(30);
+
+    .legend-list {
+      margin-top: px2vw(65);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .legend-item {
+        margin-bottom: px2vw(20);
+      }
+    }
+  }
+
+  .overview-title {
+    font-size: px2vw(18);
+    line-height: 1;
+    color: #111;
+  }
+
+  .overview-content {
+    font-size: px2vw(30);
+    line-height: 1;
+    color: #111;
+    margin-top: px2vw(20);
+  }
+}
+
+.public-course-scale-con {
+  width: px2vw(996);
+  height: px2vw(255);
+
+  .scale-item {
+    margin-bottom: px2vw(15);
+    width: px2vw(996);
+    height: px2vw(75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .scale-txt {
+      font-size: px2vw(30);
+      color: #44C5C2;
+    }
+  }
+}
