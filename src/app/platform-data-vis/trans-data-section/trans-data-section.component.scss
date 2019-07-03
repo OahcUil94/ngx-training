@@ -1,0 +1,131 @@
+@import "~src/styles/config";
+
+.trans-data-wrapper {
+  margin-top: px2rem(36);
+}
+
+.trans-data-card-list {
+  width: px2vw(301);
+}
+
+.trans-data-con {
+  display: flex;
+  justify-content: space-between;
+  margin-top: px2vw(30);
+}
+
+.trans-data-card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trans-data-card {
+  width: px2vw(301);
+  height: px2vw(122);
+  padding: px2vw(26) px2vw(30);
+
+  box-sizing: border-box;
+  background-size: cover;
+
+  .card-title {
+    font-size: px2vw(18);
+    line-height: 1;
+    color: #FFF;
+    margin-bottom: px2vw(15);
+  }
+
+  .card-txt {
+    font-size: px2vw(30);
+    line-height: 1;
+    color: #FFF;
+  }
+}
+
+.trans-data-chart-con {
+  width: px2vw(995);
+  height: px2vw(426);
+  box-sizing: border-box;
+  padding: px2vw(22) px2vw(30) px2vw(29);
+
+  .chart-tool-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .chart-title {
+      font-size: px2rem(18);
+      color: #111;
+      line-height: 1;
+    }
+
+    .date-filter-tool-con {
+      display: flex;
+      align-items: center;
+
+      &>* {
+        margin-right: px2rem(15);
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .date-tool-txt {
+      font-size: px2rem(15);
+      color: #111;
+    }
+
+    .date-input {
+      width: px2rem(192);
+      height: px2rem(36);
+
+      background: #FFF;
+      box-shadow: 0 1px px2rem(11) 0 #F1F2F4;
+      border-radius: px2rem(23);
+
+      font-size: px2rem(12);
+      color: #999;
+      line-height: 1;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .date-select-btn {
+      width: px2rem(75);
+      height: px2rem(36);
+      background-color: #FFF;
+      box-shadow: 0 1px px2rem(11) 0 #F1F2F4;
+      border-radius: px2rem(24);
+
+      font-size: px2rem(15);
+      color: #111;
+      text-align: center;
+      cursor: pointer;
+      line-height: px2rem(36);
+
+      &.active {
+        background-color: #35A5ED;
+        box-shadow: 0 1px px2rem(11) 0 rgba(53,165,237,0.50);
+        color: #FFF;
+      }
+    }
+  }
+
+  .chart-legend-con {
+    display: flex;
+    align-items: center;
+    margin-top: px2vw(42);
+
+    .legend-item {
+      margin-right: px2rem(20);
+    }
+  }
+
+  .trans-data-chart {
+    width: px2vw(935);
+    height: px2vw(257);
+    margin-top: px2vw(25);
+  }
+}

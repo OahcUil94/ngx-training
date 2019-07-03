@@ -1,0 +1,32 @@
+@import "~src/styles/config";
+
+.section-title-con {
+  display: flex;
+
+  background: #FFF;
+  box-shadow: 0 1px px2rem(11) 1px #F1F2F4;
+  border-radius: px2rem(6);
+  align-items: center;
+  position: relative;
+  height: px2rem(50);
+
+  .title-txt {
+    line-height: 1;
+    font-size: px2rem(21);
+    color: #111;
+    font-weight: 400;
+    padding-left: px2rem(36);
+  }
+
+  &::after {
+    content: ' ';
+    background: #35A5ED;
+    border-radius: px2rem(18);
+    width: px2rem(8);
+    height: px2rem(30);
+    position: absolute;
+    left: px2rem(13);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

@@ -5,6 +5,10 @@ $vw_fontSize: 144;
   @return ($px / $vw_fontSize) * 1rem;
 }
 
+@function px2rem($px) {
+  @return ($px / $vw_fontSize) * 1rem;
+}
+
 @function px2vw($px) {
   @return ($px / $vw_design) * 100vw;
 }

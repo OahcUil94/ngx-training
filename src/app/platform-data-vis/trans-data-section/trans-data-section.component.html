@@ -1,0 +1,41 @@
+<section class="trans-data-wrapper">
+  <app-data-section-title [title]="'平台交易数据'"></app-data-section-title>
+
+  <section class="trans-data-con">
+    <ul class="trans-data-card-list">
+      <li
+        *ngFor="let item of list;"
+        class="trans-data-card common-radius"
+        [ngClass]="item.classList"
+        [ngStyle]="{'background-image':item.bgUrl}"
+      >
+        <h5 class="card-title">{{item.title}}</h5>
+        <h6 class="card-txt">{{item.unit + item.content}}</h6>
+      </li>
+    </ul>
+
+    <section class="trans-data-chart-con common-shadow common-radius">
+      <div class="chart-tool-con">
+        <h5 class="chart-title">平台交易情况：</h5>
+        <div class="date-filter-tool-con">
+          <span class="date-tool-txt">时间段：</span>
+          <input type="text" value="请选择时间段" class="date-input">
+          <button type="button" class="date-select-btn active">昨天</button>
+          <button type="button" class="date-select-btn">7天</button>
+          <button type="button" class="date-select-btn">30天</button>
+        </div>
+      </div>
+      <ul class="chart-legend-con">
+        <li class="legend-item" (click)="visibleLine('transaction')">
+          <span class="legend-icon cyan-shadow"></span>
+          <span class="legend-txt">平台交易额</span>
+        </li>
+        <li class="legend-item" (click)="visibleLine('order')">
+          <span class="legend-icon blue-shadow"></span>
+          <span class="legend-txt">平台订单数</span>
+        </li>
+      </ul>
+      <div class="trans-data-chart" #transDataChart></div>
+    </section>
+  </section>
+</section>
