@@ -1,0 +1,62 @@
+@import "~src/styles/config";
+
+.user-data-con {
+  margin-top: px2vw(30);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart-con {
+  background: #FFF;
+  display: flex;
+  width: px2vw(648);
+  height: px2vw(165);
+
+  .user-data-chart {
+    flex: 1;
+  }
+
+  .legend-list {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+
+    padding-bottom: px2vw(34);
+
+    .legend-item {
+      margin-bottom: px2vw(15);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.overview-info-list {
+  width: px2vw(648);
+  height: px2vw(165);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .info-title {
+    font-size: px2vw(18);
+    line-height: 1;
+    color: #111;
+    margin-bottom: px2vw(20);
+  }
+
+  .info-txt {
+    font-size: px2vw(30);
+    line-height: 1;
+    font-weight: 700;
+    color: #111;
+  }
+}
+
+

@@ -1,4 +1,33 @@
 <section class="user-data-wrapper">
   <app-data-section-title [title]="'平台用户数据'"></app-data-section-title>
 
+  <section class="user-data-con">
+    <section class="chart-con common-radius common-shadow">
+      <div class="user-data-chart" #userDataChart></div>
+      <ul class="legend-list">
+        <li class="legend-item" (click)="visibleChart('user')">
+          <span class="legend-icon cyan-shadow"></span>
+          <span class="legend-txt">C端用户数量</span>
+        </li>
+        <li class="legend-item" (click)="visibleChart('co_user')">
+          <span class="legend-icon blue-shadow"></span>
+          <span class="legend-txt">企业用户数量</span>
+        </li>
+      </ul>
+    </section>
+    <ul class="overview-info-list common-shadow common-radius">
+      <li class="info-item">
+        <h5 class="info-title">用户数量：</h5>
+        <h6 class="info-txt">5610</h6>
+      </li>
+      <li class="info-item">
+        <h5 class="info-title">企业用户数量：</h5>
+        <h6 class="info-txt">2089</h6>
+      </li>
+      <li class="info-item">
+        <h5 class="info-title">C端用户数量：</h5>
+        <h6 class="info-txt">3521</h6>
+      </li>
+    </ul>
+  </section>
 </section>
