@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./platform-data-vis.component.scss']
 })
 export class PlatformDataVisComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

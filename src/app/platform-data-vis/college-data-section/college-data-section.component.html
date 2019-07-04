@@ -5,7 +5,18 @@
       <a href="javascript:void(0);" class="search-btn">
         <img class="search-icon" src="/assets/platform-data-vis/college-data-section/search.svg" alt="搜索企业大学" title="搜索企业大学">
       </a>
-      <input type="text" class="search-input" placeholder="输入要查询的企业大学" />
+      <nz-select
+        class="search-input"
+        nzShowSearch
+        nzAllowClear
+        [nzShowArrow]="false"
+        nzPlaceHolder="请输入要查询的企业大学"
+        [(ngModel)]="selectedValue"
+      >
+        <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+        <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+        <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+      </nz-select>
     </div>
   </section>
   <ul class="college-data-con common-shadow common-radius">

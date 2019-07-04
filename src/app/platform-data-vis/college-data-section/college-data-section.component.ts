@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./college-data-section.component.scss']
 })
 export class CollegeDataSectionComponent implements OnInit {
+  selectedValue = null;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

@@ -28,18 +28,28 @@
 
     .search-input {
       display: block;
-      width: px2vw(150);
-      height: px2vw(28);
-      padding: px2vw(7) 0;
-      font-size: px2vw(14);
-      color: #CCC;
-      line-height: 1;
-
-      &::-webkit-input-placeholder {
-        color: #CCC;
-        font-size: px2vw(14);
-      }
+      width: px2vw(180);
     }
+  }
+}
+
+:host ::ng-deep {
+  .ant-select-selection {
+    border-width: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .ant-select-selection__choice__content, .ant-select-search__field {
+    font-size: px2vw(14) !important;
+  }
+
+  .ant-select-selection__placeholder {
+    font-size: px2vw(12) !important;
+    color: #CCC !important;
+  }
+
+  .ant-select-selection__rendered {
+    line-height: 32px !important;
   }
 }
 
