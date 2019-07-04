@@ -19,7 +19,12 @@
         <h5 class="chart-title">平台交易情况：</h5>
         <div class="date-filter-tool-con">
           <span class="date-tool-txt">时间段：</span>
-          <input type="text" value="请选择时间段" class="date-input">
+          <!--<input type="text" value="请选择时间段" class="date-input">-->
+          <nz-range-picker
+            [(ngModel)]="dateRange"
+            (ngModelChange)="onChange($event)"
+          ></nz-range-picker>
+          <br />
           <button type="button" class="date-select-btn active">昨天</button>
           <button type="button" class="date-select-btn">7天</button>
           <button type="button" class="date-select-btn">30天</button>

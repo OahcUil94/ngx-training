@@ -12,6 +12,7 @@ export class TransDataSectionComponent implements OnInit, AfterViewInit {
   list: ListItemInfo[] = [];
   @ViewChild('transDataChart', {read: ElementRef, static: false}) transDataChart: ElementRef<HTMLElement>;
   chart: any;
+  dateRange = [];
   constructor(private service: TransDataService) { }
 
   ngOnInit() {
@@ -20,6 +21,10 @@ export class TransDataSectionComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.renderChart();
+  }
+
+  onChange(result: Date[]): void {
+    console.log(result);
   }
 
   renderChart() {

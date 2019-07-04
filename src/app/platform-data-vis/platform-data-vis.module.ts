@@ -9,15 +9,25 @@ import { CourseDataSectionComponent } from './course-data-section/course-data-se
 import { UserDataSectionComponent } from './user-data-section/user-data-section.component';
 import { CollegeDataSectionComponent } from './college-data-section/college-data-section.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [PlatformDataVisComponent, DataSectionTitleComponent, TransDataSectionComponent, DatepickerComponent, CourseDataSectionComponent, UserDataSectionComponent, CollegeDataSectionComponent],
+  declarations: [
+    PlatformDataVisComponent,
+    DataSectionTitleComponent,
+    TransDataSectionComponent,
+    DatepickerComponent,
+    CourseDataSectionComponent,
+    UserDataSectionComponent,
+    CollegeDataSectionComponent
+  ],
   imports: [
     CommonModule,
-    NzSelectModule,
     FormsModule,
-    PlatformDataVisRoutingModule
+    PlatformDataVisRoutingModule,
+    NzSelectModule,
+    NzDatePickerModule
   ]
 })
 export class PlatformDataVisModule { }
