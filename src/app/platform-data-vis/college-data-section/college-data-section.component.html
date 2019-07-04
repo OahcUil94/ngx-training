@@ -1,3 +1,33 @@
-<p>
-  college-data-section works!
-</p>
+<section class="college-data-wrapper">
+  <section class="college-data-header">
+    <app-data-section-title [title]="'查询企业大学数据'"></app-data-section-title>
+    <div class="college-search-con common-shadow common-radius">
+      <a href="javascript:void(0);" class="search-btn">
+        <img class="search-icon" src="/assets/platform-data-vis/college-data-section/search.svg" alt="搜索企业大学" title="搜索企业大学">
+      </a>
+      <input type="text" class="search-input" placeholder="输入要查询的企业大学" />
+    </div>
+  </section>
+  <ul class="college-data-con common-shadow common-radius">
+    <li class="item-info-con">
+      <h6 class="item-info-title">课程数量：</h6>
+      <p class="item-info-content">-</p>
+    </li>
+    <li class="item-info-con">
+      <h6 class="item-info-title">开放课程数量：</h6>
+      <p class="item-info-content">-</p>
+    </li>
+    <li class="item-info-con">
+      <h6 class="item-info-title">交易总金额：</h6>
+      <p class="item-info-content">-</p>
+    </li>
+    <li class="item-info-con">
+      <h6 class="item-info-title">累计订单数：</h6>
+      <p class="item-info-content">-</p>
+    </li>
+    <li class="item-info-con">
+      <h6 class="item-info-title">用户数量：</h6>
+      <p class="item-info-content">-</p>
+    </li>
+  </ul>
+</section>
