@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Observable} from "rxjs";
 
 export interface ListItemInfo {
   title: string;
@@ -10,7 +12,7 @@ export interface ListItemInfo {
 
 @Injectable()
 export class TransDataService {
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getList(): ListItemInfo[] {
     return [{
@@ -32,5 +34,12 @@ export class TransDataService {
       bgUrl: 'url(/assets/platform-data-vis/trans-data-section/green.png)',
       classList: ['green-shadow']
     }];
+  }
+
+  login(): Observable<any> {
+    return this.http.post<any>('/api/admin/v1/users/login', {
+      'username': 'zhixing@zhixingglobal.com',
+      'password': '123456'
+    })
   }
 }

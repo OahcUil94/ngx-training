@@ -17,6 +17,7 @@ export class TransDataSectionComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.list = this.service.getList();
+    this.service.login().subscribe(console.log);
   }
 
   ngAfterViewInit() {

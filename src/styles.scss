@@ -1,4 +1,7 @@
 @import "~src/styles/config";
+@import '~ng-zorro-antd/style/index.css';
+@import '~ng-zorro-antd/date-picker/style/index.css';
+@import '~ng-zorro-antd/select/style/index.css';
 
 html, body {
   width: 100%;
@@ -11,7 +14,7 @@ html, body, ul, li {
 }
 
 html {
-  font-size: ($vw_fontSize / $vw_design) * 100vw;
+  font-size: ($vw_fontSize / $vw_design) * 100vw; // 10vw
 
   @media screen and (max-width: 600px) {
     font-size: 64px;

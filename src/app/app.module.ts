@@ -5,11 +5,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StudyGuideComponent } from './study-guide/study-guide.component';
 import { DiTrainingComponent } from './di-training/di-training.component';
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
-import { registerLocaleData } from '@angular/common';
-import zh from '@angular/common/locales/zh';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-registerLocaleData(zh);
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -21,11 +18,8 @@ registerLocaleData(zh);
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
-    NgZorroAntdModule
+    HttpClientModule
   ],
-  bootstrap: [AppComponent],
-  providers: [
-    {provide: NZ_I18N, useValue: zh_CN}
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
