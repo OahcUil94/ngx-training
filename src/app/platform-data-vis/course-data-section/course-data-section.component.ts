@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseDataService, CourseOverviewData, PublicCourseData } from './course-data.service';
+import { CourseDataService, CourseInfo } from './course-data.service';
 
 @Component({
   selector: 'app-course-data-section',
@@ -8,12 +8,13 @@ import { CourseDataService, CourseOverviewData, PublicCourseData } from './cours
   providers: [CourseDataService]
 })
 export class CourseDataSectionComponent implements OnInit {
-  overviewData: CourseOverviewData[] = this.service.getOverviewEmptyData();
-  publicCourseData: PublicCourseData = this.service.getPublicCourseEmptyData();
+  courseInfo: CourseInfo;
   constructor(private service: CourseDataService) { }
 
   ngOnInit() {
-    this.overviewData = this.service.getOverviewData();
-    this.publicCourseData = this.service.getPublicCourseData();
+    this.courseInfo = this.service.getEmptyCourseData();
+    this.service.getOverviewData().subscribe(v => {
+      this.courseInfo = v;
+    });
   }
 }

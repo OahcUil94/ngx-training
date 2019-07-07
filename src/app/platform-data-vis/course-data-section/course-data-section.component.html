@@ -3,7 +3,7 @@
 
   <section class="course-data-con">
     <ul class="course-overview-list">
-      <li *ngFor="let item of overviewData;" class="course-overview-item common-shadow common-radius">
+      <li *ngFor="let item of courseInfo.overviewInfo;" class="course-overview-item common-shadow common-radius">
         <h5 class="item-title">{{item.title}}</h5>
         <h6 class="item-content">{{item.content}}</h6>
       </li>
@@ -11,7 +11,7 @@
     <section class="public-course-con">
       <section class="overview-con common-shadow common-radius">
         <h5 class="overview-title">开放课程数量：</h5>
-        <h6 class="overview-content">{{publicCourseData.total}}</h6>
+        <h6 class="overview-content">{{courseInfo.publicInfo.total}}</h6>
         <ul class="legend-list">
           <li class="legend-item">
             <span class="legend-icon blue-shadow"></span>
@@ -29,31 +29,31 @@
       </section>
       <ul class="public-course-scale-con">
         <li class="scale-item common-shadow common-radius blue">
-          <div class="progress-con common-radius">
+          <div class="progress-con common-radius" [ngStyle]="{'width.vw': (266 + courseInfo.publicInfo.online.percent / 100 * (836 - 266)) / 1440 * 100}">
             <h5 class="progress-title">在线课数量：</h5>
-            <h6 class="progress-content">1056</h6>
+            <h6 class="progress-content">{{courseInfo.publicInfo.online.count}}</h6>
           </div>
           <div class="progress-placeholder-con"></div>
           <div class="percent-con">
-            <p class="percent-info">51%</p>
+            <p class="percent-info">{{courseInfo.publicInfo.online.percent}}%</p>
           </div>
         </li>
         <li class="scale-item common-shadow common-radius cyan">
-          <div class="common-radius progress-con">
+          <div class="common-radius progress-con" [ngStyle]="{'width.vw': (266 + courseInfo.publicInfo.live.percent / 100 * (836 - 266)) / 1440 * 100}">
             <h5 class="progress-title">直播课数量：</h5>
-            <h6 class="progress-content">654</h6>
+            <h6 class="progress-content">{{courseInfo.publicInfo.live.count}}</h6>
           </div>
           <div class="percent-con">
-            <p class="percent-info">28%</p>
+            <p class="percent-info">{{courseInfo.publicInfo.live.percent}}%</p>
           </div>
         </li>
         <li class="scale-item common-shadow common-radius green">
-          <div class="common-radius progress-con">
+          <div class="common-radius progress-con" [ngStyle]="{'width.vw': (266 + courseInfo.publicInfo.offline.percent / 100 * (836 - 266)) / 1440 * 100}">
             <h5 class="progress-title">线下课数量：</h5>
-            <h6 class="progress-content">0</h6>
+            <h6 class="progress-content">{{courseInfo.publicInfo.offline.count}}</h6>
           </div>
           <div class="percent-con">
-            <p class="percent-info">0%</p>
+            <p class="percent-info">{{courseInfo.publicInfo.offline.percent}}%</p>
           </div>
         </li>
       </ul>

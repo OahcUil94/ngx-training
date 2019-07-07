@@ -25,9 +25,15 @@
             (ngModelChange)="onChange($event)"
           ></nz-range-picker>
           <br />
-          <button type="button" class="date-select-btn active">昨天</button>
-          <button type="button" class="date-select-btn">7天</button>
-          <button type="button" class="date-select-btn">30天</button>
+          <button
+            type="button" class="date-select-btn" (click)="handleDateBtnClick(1)"
+            [ngClass]="{'active':dateType == 1}">昨天</button>
+          <button
+            type="button" class="date-select-btn" (click)="handleDateBtnClick(7)"
+            [ngClass]="{'active':dateType == 7}">7天</button>
+          <button
+            type="button" class="date-select-btn" (click)="handleDateBtnClick(30)"
+            [ngClass]="{'active':dateType == 30}">30天</button>
         </div>
       </div>
       <ul class="chart-legend-con">

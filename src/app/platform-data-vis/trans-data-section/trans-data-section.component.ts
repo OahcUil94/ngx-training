@@ -9,26 +9,64 @@ import * as Highcharts from 'highcharts';
   providers: [TransDataService]
 })
 export class TransDataSectionComponent implements OnInit, AfterViewInit {
-  list: ListItemInfo[] = [];
+  list: ListItemInfo[];
+
   @ViewChild('transDataChart', {read: ElementRef, static: false}) transDataChart: ElementRef<HTMLElement>;
   chart: any;
   dateRange = [];
+  xAxis: string[] = [];
+  totalMoney: number[] = [];
+  orderCount: number[] = [];
+  dateType: number = 7;
+
   constructor(private service: TransDataService) { }
 
   ngOnInit() {
-    this.list = this.service.getList();
-    this.service.login().subscribe(console.log);
+    this.list = this.service.getTransDataEmptyList();
+    this.service.getTransDataList().subscribe(v => this.list = v);
   }
 
   ngAfterViewInit() {
-    this.renderChart();
+    this.renderChart(this.xAxis, this.totalMoney, this.orderCount);
+
+    this.service.getTransDataListByDate({type: this.dateType}).subscribe(data => {
+      this.xAxis = data.map(v => v.date.length === 13? v.date.slice(-2): v.date.slice(5));
+      this.totalMoney = data.map(v => v.totalMoney / 100);
+      this.orderCount = data.map(v => v.orderCount);
+
+      this.renderChart(this.xAxis, this.totalMoney, this.orderCount);
+    });
   }
 
-  onChange(result: Date[]): void {
-    console.log(result);
+  onChange(): void {
+    this.dateType = -1;
+    this.service.getTransDataListByDate({
+      type: this.dateType,
+      startTime: this.getDateString(this.dateRange[0]),
+      endTime: this.getDateString(this.dateRange[1])
+    }).subscribe(data => {
+      this.xAxis = data.map(v => v.date.length === 13? v.date.slice(-2): v.date.slice(5));
+      this.totalMoney = data.map(v => v.totalMoney / 100);
+      this.orderCount = data.map(v => v.orderCount);
+
+      this.renderChart(this.xAxis, this.totalMoney, this.orderCount);
+    });
   }
 
-  renderChart() {
+  handleDateBtnClick(dateType: number) {
+    this.dateType = dateType;
+    this.dateRange = [];
+
+    this.service.getTransDataListByDate({type: this.dateType}).subscribe(data => {
+      this.xAxis = data.map(v => v.date.length === 13? v.date.slice(-2): v.date.slice(5));
+      this.totalMoney = data.map(v => v.totalMoney / 100);
+      this.orderCount = data.map(v => v.orderCount);
+
+      this.renderChart(this.xAxis, this.totalMoney, this.orderCount);
+    });
+  }
+
+  renderChart(xAxis: string[], totalMoney: number[], orderCount: number[]) {
     const options = {
       chart: {
         type: 'line'
@@ -37,7 +75,7 @@ export class TransDataSectionComponent implements OnInit, AfterViewInit {
         text: null
       },
       xAxis: {
-        categories: ['Apples', 'Bananas', 'Oranges']
+        categories: xAxis
       },
       yAxis: {
         title: {
@@ -53,12 +91,12 @@ export class TransDataSectionComponent implements OnInit, AfterViewInit {
       series: [{
         id: 'transaction',
         name: '平台交易额',
-        data: [1, 0, 4],
+        data: totalMoney,
         color: '#6EC9C7'
       }, {
         id: 'order',
         name: '平台订单数',
-        data: [5, 7, 3],
+        data: orderCount,
         color: '#35A5ED'
       }]
     };
@@ -74,5 +112,11 @@ export class TransDataSectionComponent implements OnInit, AfterViewInit {
 
     const series = this.chart.get(id);
     series.setVisible(!series.visible);
+  }
+
+  getDateString(date: Date): string {
+    return date.getFullYear() + '-'
+      + ('0' + (date.getMonth() + 1)).slice(-2) + '-'
+      + ('0' + date.getDate()).slice(-2) + ' 00:00:00';
   }
 }
