@@ -12,33 +12,35 @@
         [nzShowArrow]="false"
         nzPlaceHolder="请输入要查询的企业大学"
         [(ngModel)]="selectedValue"
+        [nzServerSearch]="true"
+        [nzLoading]="loading"
+        (nzOnSearch)="onSearchChange($event)"
+        (ngModelChange)="onSelectChange()"
       >
-        <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-        <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-        <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+        <nz-option *ngFor="let item of collegeList" [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
       </nz-select>
     </div>
   </section>
   <ul class="college-data-con common-shadow common-radius">
     <li class="item-info-con">
       <h6 class="item-info-title">课程数量：</h6>
-      <p class="item-info-content">-</p>
+      <p class="item-info-content">{{!!selectedValue? collegeStatsData.courseTotal: '-'}}</p>
     </li>
     <li class="item-info-con">
       <h6 class="item-info-title">开放课程数量：</h6>
-      <p class="item-info-content">-</p>
+      <p class="item-info-content">{{!!selectedValue? collegeStatsData.publicTotal: '-'}}</p>
     </li>
     <li class="item-info-con">
       <h6 class="item-info-title">交易总金额：</h6>
-      <p class="item-info-content">-</p>
+      <p class="item-info-content">{{!!selectedValue? collegeStatsData.totalMoney / 100: '-'}}</p>
     </li>
     <li class="item-info-con">
       <h6 class="item-info-title">累计订单数：</h6>
-      <p class="item-info-content">-</p>
+      <p class="item-info-content">{{!!selectedValue? collegeStatsData.orderCount: '-'}}</p>
     </li>
     <li class="item-info-con">
       <h6 class="item-info-title">用户数量：</h6>
-      <p class="item-info-content">-</p>
+      <p class="item-info-content">{{!!selectedValue? collegeStatsData.userTotal: '-'}}</p>
     </li>
   </ul>
 </section>
