@@ -18,15 +18,15 @@
     <ul class="overview-info-list common-shadow common-radius">
       <li class="info-item">
         <h5 class="info-title">用户数量：</h5>
-        <h6 class="info-txt">5610</h6>
+        <h6 class="info-txt">{{userData.userTotal}}</h6>
       </li>
       <li class="info-item">
         <h5 class="info-title">企业用户数量：</h5>
-        <h6 class="info-txt">2089</h6>
+        <h6 class="info-txt">{{userData.coUserTotal}}</h6>
       </li>
       <li class="info-item">
         <h5 class="info-title">C端用户数量：</h5>
-        <h6 class="info-txt">3521</h6>
+        <h6 class="info-txt">{{userData.userTotal - userData.coUserTotal}}</h6>
       </li>
     </ul>
   </section>

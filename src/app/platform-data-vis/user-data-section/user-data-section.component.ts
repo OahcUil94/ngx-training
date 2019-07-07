@@ -1,23 +1,33 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as Highcharts from "highcharts";
+import { UserData, UserDataService } from './user-data.service';
 
 @Component({
   selector: 'app-user-data-section',
   templateUrl: './user-data-section.component.html',
-  styleUrls: ['./user-data-section.component.scss']
+  styleUrls: ['./user-data-section.component.scss'],
+  providers: [UserDataService]
 })
 export class UserDataSectionComponent implements OnInit, AfterViewInit {
   chart: any;
+  userData: UserData = {userTotal: 0, coUserTotal: 0};
   @ViewChild('userDataChart', {read: ElementRef, static: false}) userDataChart: ElementRef<HTMLElement>;
-  constructor() { }
+  constructor(private service: UserDataService) { }
 
   ngOnInit() {}
 
   ngAfterViewInit() {
-    this.renderChart();
+    this.renderChart(50, 50);
+    this.service.getUserDataByHttp().subscribe(v => {
+      this.userData = v;
+      this.renderChart(
+        this.userData.coUserTotal,
+        this.userData.userTotal - this.userData.coUserTotal
+      );
+    });
   }
 
-  renderChart() {
+  renderChart(coUserCount: number, toCCount: number) {
     const options = {
       chart: {
         plotBackgroundColor: null,
@@ -42,7 +52,7 @@ export class UserDataSectionComponent implements OnInit, AfterViewInit {
         data: [{
           id: 'co_user',
           name: '企业用户',
-          y: 45,
+          y: coUserCount,
           color: '#35A5ED',
           dataLabels: {
             style: {
@@ -54,7 +64,7 @@ export class UserDataSectionComponent implements OnInit, AfterViewInit {
         }, {
           id: 'user',
           name: 'C端用户',
-          y: 55,
+          y: toCCount,
           color: '#6EC9C7',
           dataLabels: {
             style: {
