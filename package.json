@@ -26,7 +26,7 @@
     "@angular/router": "~8.0.0",
     "@nguniversal/express-engine": "v7.0.2",
     "@nguniversal/module-map-ngfactory-loader": "v7.0.2",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "highcharts": "^7.1.2",
     "ng-zorro-antd": "^8.0.2",
     "rxjs": "~6.4.0",
